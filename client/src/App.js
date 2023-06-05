@@ -1,30 +1,36 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Home from './pages/Home';
-import Main from './pages/Main';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Main from "./pages/Main";
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 function App() {
+  const [load, updateLoad] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateLoad(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Main" element={<Main />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Signup" element={<Signup />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
