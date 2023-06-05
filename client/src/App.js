@@ -5,25 +5,33 @@ import Home from './pages/Home';
 import Main from './pages/Main';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Navbar from './components/Navbar';
 import './App.css';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <>
+          <Navbar />
+          <Routes>
+            <Route exact path='/' element={<Main />} />
+            <Route exact path='/home' element={<Home />} />
+            <Route exact path='/profile' element={<Profile />} />
+            <Route exact path='/signup' element={<Signup />} />
+          </Routes>
+        </>
+      </Router>
+    </ApolloProvider>
   );
 }
 
