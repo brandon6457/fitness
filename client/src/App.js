@@ -5,28 +5,27 @@ import Home from './pages/Home';
 import Main from './pages/Main';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import './App.css';
 
-const client = new ApolloClient({
-    uri: '/graphql',
-    cache: new InMemoryCache(),
-  });
-  
-  function App() {
-    return (
-      <ApolloProvider client={client}>
-        <Router>
-          <div className="flex-column justify-center align-center min-100-vh bg-primary">
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />}
-                />
-                </Routes>
-          </div>
-        </Router>
-      </ApolloProvider>
-    );
-  }
-  
-  export default App;
-  
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
