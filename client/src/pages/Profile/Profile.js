@@ -1,6 +1,4 @@
 import React from 'react';
-<<<<<<< Updated upstream
-=======
 import './Profile.css';
 import {
   Card,
@@ -17,15 +15,9 @@ const ProfilePage = () => {
   const handleOnlineStatus = () => {
     setIsOnline(!isOnline);
   };
->>>>>>> Stashed changes
 
-const Profile = () => {
+ const Profile = () => { 
   return (
-<<<<<<< Updated upstream
-    <main>
-      <h2>PROFILE COMING SOON</h2>
-    </main>
-=======
     <Container
         display="flex"
         alignItems="center"
@@ -61,8 +53,7 @@ const Profile = () => {
     </div>
     </Card>
     </Container>
->>>>>>> Stashed changes
   );
 };
 
-export default Profile;
+export default ProfilePage;

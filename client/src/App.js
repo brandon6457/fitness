@@ -1,11 +1,38 @@
 import React, { useState, useEffect } from "react";
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
+// import Navbar from '../src/components/Navbar';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [load, updateLoad] = useState(true);
@@ -19,16 +46,20 @@ function App() {
   }, []);
 
   return (
+    <ApolloProvider client={client}>
     <Router>
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Main" element={<Main />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="/main" element={<Main />}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/signup" element={<Signup />}/>
         </Routes>
+        <Footer />
       </div>
     </Router>
+    </ApolloProvider>
   );
 }
 
