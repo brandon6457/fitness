@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Navbar from '../src/components/Navbar';
 import Footer from "./components/Footer"
+
 import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
@@ -15,9 +16,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
