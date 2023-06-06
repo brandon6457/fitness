@@ -3,7 +3,8 @@
 // #4cb944 green
 // #fafaff white
 // #de541e orange
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   Spacer,
@@ -11,7 +12,7 @@ import {
   Text,
   Input,
   Container,
-} from '@nextui-org/react';
+} from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -21,21 +22,21 @@ export default function Home() {
         alignItems="center"
         justify="center"
         css={{
-          minHeight: '100vh',
+          minHeight: "100vh",
         }}
       >
-        <Card css={{ mw: '420px', p: '20px' }}>
+        <Card css={{ mw: "420px", p: "20px" }}>
           <Text
             size={44}
             weight="bold"
             css={{
-              color : '#eec643',
-              textAlign: 'center', 
-              marginBottom: '20px', 
-              backgroundColor: '#4cb944',
-              borderRadius: '10px',
-              padding: '10px',
-              boxShadow: '0 0 4px #4cb944',
+              color: "#eec643",
+              textAlign: "center",
+              marginBottom: "20px",
+              backgroundColor: "#4cb944",
+              borderRadius: "10px",
+              padding: "10px",
+              boxShadow: "0 0 4px #4cb944",
             }}
           >
             Fitness Login
@@ -58,15 +59,31 @@ export default function Home() {
             placeholder="Password"
           />
           <Spacer y={1} />
-          <Button css={{
-              color : '#4cb944',
-              backgroundColor:'#eec643',
-              fontSize:'18px'}}>Sign Up</Button> 
-              <Spacer y={1} />
-          <Button css={{
-              color : '#eec643',
-              backgroundColor:'#4cb944',
-              fontSize:'18px'}}>Sign in</Button> 
+
+          <Link to="/signup">
+      <Button
+        css={{
+          color: "#4cb944",
+          backgroundColor: "#eec643",
+          fontSize: "18px",
+
+        }}
+      >
+        Sign Up
+      </Button>
+    </Link>
+
+          <Spacer y={1} />
+          <Button
+            css={{
+              color: "#eec643",
+              backgroundColor: "#4cb944",
+              fontSize: "18px",
+              
+            }}
+          >
+            Sign in
+          </Button>
         </Card>
       </Container>
     </div>
