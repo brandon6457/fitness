@@ -1,0 +1,42 @@
+:root {
+    --FITYELLOW: #eec643;
+    --FITBLACK: #1c1c1c;
+    --FITGREEN: #4cb944;
+    --FITWHITE: #fafaff;
+    --FITRED: #de541e;
+  }
+  
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--FITWHITE);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid grey;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 0 10px;
+}
+
+.footer-button {
+    text-decoration: none;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--FITGREEN);
+    color: var(--FITYELLOW);
+    font-weight: bold;
+}
+
+.footer-button:hover {
+    background-color: var(--FITRED);
+}
