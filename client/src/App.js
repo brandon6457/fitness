@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Navbar from '../src/components/Navbar';
-import Footer from "./components/Footer"
-
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
@@ -49,6 +49,7 @@ function App() {
     <ApolloProvider client={client}>
     <Router>
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/main" element={<Main />}/>

@@ -5,6 +5,10 @@
     --FITWHITE: #fafaff;
     --FITRED: #de541e;
   }
+
+  * {
+    font-family: 'Anton', sans-serif;
+}
   
 
 .footer {
