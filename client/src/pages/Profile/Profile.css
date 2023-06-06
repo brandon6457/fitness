@@ -1,0 +1,21 @@
+<<<<<<< Updated upstream
+=======
+* {
+    /* border-color: 1px solid red;
+    outline: 1px solid red; */
+}
+
+.online-button {
+    text-decoration: none;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--FITGREEN);
+    color: var(--FITYELLOW);
+    font-weight: bold;
+}
+
+.online-button:hover {
+    background-color: var(--FITRED);
+}
+>>>>>>> Stashed changes
