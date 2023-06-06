@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from "react";
-import Navbar from './components/Navbar';
+import Navbar from '../src/components/Navbar';
 import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,10 +50,10 @@ function App() {
     <Router>
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Main" element={<Main />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="/main" element={<Main />}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/signup" element={<Signup />}/>
         </Routes>
       </div>
     </Router>
