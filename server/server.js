@@ -27,11 +27,11 @@ app.get("/", (req, res) => {
 const startApolloServer = async () => {
   await server.start();
 
-  server.applyMiddleware({ app });
+  // server.applyMiddleware({ app });
 
   db.once("open", () => {
     app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
+      console.log(`server running on http://localhost:${PORT}`);
       console.log(
         `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
       );
