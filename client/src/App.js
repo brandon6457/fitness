@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from '../src/components/Navbar';
+// import Navbar from '../src/components/Navbar';
+import Footer from "./components/Footer"
 import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
@@ -55,6 +56,7 @@ function App() {
           <Route path="/profile" element={<Profile />}/>
           <Route path="/signup" element={<Signup />}/>
         </Routes>
+        <Footer />
       </div>
     </Router>
     </ApolloProvider>
