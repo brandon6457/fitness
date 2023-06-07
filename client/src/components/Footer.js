@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import  AuthService from '../utils/auth'
 
 const Footer = () => {
+  const { logout } = AuthService;
   return (
     <footer className="footer">
       <nav>
@@ -21,6 +23,11 @@ const Footer = () => {
             <Link to="/main" className="footer-button">
               Main
             </Link>
+          </li>
+          <li>
+            <button className='log-out' onClick={()=>logout()}>
+              Log Out
+            </button>
           </li>
         </ul>
       </nav>
