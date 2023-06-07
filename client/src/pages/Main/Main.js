@@ -4,7 +4,14 @@ import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../../utils/queries';
 import PostList from '../../components/PostList';
 import PostForm from '../../components/PostForm';
-
+import {
+  Card,
+  Spacer,
+  Button,
+  Text,
+  Input,
+  Container,
+} from '@nextui-org/react';
 
 const Main = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -32,7 +39,6 @@ const Main = () => {
     </main>
   );
 };
-
-
-          
+        
 export default Main;
+

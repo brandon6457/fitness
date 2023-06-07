@@ -1,5 +1,21 @@
+:root {
+    --FITYELLOW: #eec643;
+    --FITBLACK: #1c1c1c;
+    --FITGREEN: #4cb944;
+    --FITWHITE: #fafaff;
+    --FITRED: #de541e;
+}
+
+.mainHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--FITGREEN);
+    color: var(--FITYELLOW);
+}
+
 .ityd {
     font-family: 'Indie Flower', cursive;
     font-style: italic;
-  }
-  
+    color: var(--FITWHITE);
+}
