@@ -30,3 +30,14 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_POST = gql`
+  mutation addPost($postText: String!, $postAuthor: String!) {
+    addPost(postText: $postText, postAuthor: $postAuthor) {
+      _id
+      postText
+      postAuthor
+      createdAt
+    }
+  }
+`;
