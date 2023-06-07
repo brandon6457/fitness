@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Navbar from '../src/components/Navbar';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home/Home";
@@ -26,7 +25,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const client = new ApolloClient({
