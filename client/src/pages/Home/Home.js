@@ -14,7 +14,51 @@ import {
   Container,
 } from "@nextui-org/react";
 
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 export default function Home() {
+
+  const [formState, setFormState] = React.useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log(name, value)
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    console.log('event', event)
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+
+      // redirect to home page
+      window.location.replace("/profile");
+
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
+
+
   return (
     <div>
       <Container
@@ -41,6 +85,8 @@ export default function Home() {
           >
             Fitness Login
           </Text>
+          <form onSubmit={handleFormSubmit}>
+
           <Input
             clearable
             bordered
@@ -48,7 +94,10 @@ export default function Home() {
             color="error"
             size="lg"
             placeholder="Email"
-          />
+            name="email"
+            onChange={handleChange}
+            value={formState.email}
+            />
           <Spacer y={1} />
           <Input
             clearable
@@ -56,25 +105,27 @@ export default function Home() {
             fullWidth
             color="error"
             size="lg"
+            name="password"
             placeholder="Password"
-          />
+            onChange={handleChange}
+            value={formState.password}
+            />
           <Spacer y={1} />
-
-          <Link to="/signup">
       <Button
         css={{
           color: "#4cb944",
           backgroundColor: "#eec643",
           fontSize: "18px",
-
+          
         }}
-      >
-        Sign Up
+        type="submit"
+        >
+        Sign In
       </Button>
-    </Link>
+        </form>
 
           <Spacer y={1} />
-          <Button
+          <Link to="/signup"
             css={{
               color: "#eec643",
               backgroundColor: "#4cb944",
@@ -82,8 +133,8 @@ export default function Home() {
               
             }}
           >
-            Sign in
-          </Button>
+            Sign Up
+          </Link>
         </Card>
       </Container>
     </div>

@@ -1,21 +1,77 @@
+/* #eec643 yellow
+#1c1c1c black
+#4cb944 green
+#fafaff white
+ #de541e red */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #4cb944;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 .circle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #4cb944;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .date {
-    font-size: 24px;
-    color: #eec643;
-  }
+  text-align: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #4cb944;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 24px;
+  font-weight: bold;
+  color: #eec643;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+.exercise {
+  font-weight: bold;
+  font-size: large;
+  color: #eec643;
+}
+
+.calories {
+  color: #de541e;
+  font-weight: bold;
+  font-size: large;
+}
+
+.time {
+  color: #eec643;
+  font-weight: bold;
+  font-size: large;
+}
+
+.remove {
+  margin-top: 20px;
+  background-color: #de541e;
+  color: #eec643;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
