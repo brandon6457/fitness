@@ -25,7 +25,7 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <button className='log-out' onClick={()=>logout()}>
+            <button className='footer-button' onClick={()=>logout()}>
               Log Out
             </button>
           </li>

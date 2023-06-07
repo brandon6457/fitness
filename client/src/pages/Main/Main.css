@@ -3,6 +3,10 @@
 #4cb944 green
 #fafaff white
  #de541e red */
+ * {
+  font-family: Arial, Helvetica, sans-serif
+}
+
 .container {
   display: flex;
   justify-content: center;
