@@ -5,6 +5,7 @@ import { QUERY_POSTS } from "../../utils/queries";
 import PostList from "../../components/PostList";
 import PostForm from "../../components/PostForm";
 // This is a comment
+
 const Main = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
   const posts = data?.posts || [];
@@ -29,5 +30,6 @@ const Main = () => {
     </main>
   );
 };
-
+        
 export default Main;
+
