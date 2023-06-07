@@ -1,32 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Main.css';
+import { useQuery } from '@apollo/client';
+import { QUERY_POSTS } from '../../utils/queries';
+import PostList from '../../components/PostList';
+import PostForm from '../../components/PostForm';
+
 
 const Main = () => {
-  let [date, setDate] = useState(new Date());
-
-  useEffect(() => {
-    var timer = setInterval(() => setDate(new Date()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  });
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
 
   return (
-    <>
-    <div className="circle-container">
-      <div className="circle">
-        <p className="date">{date.toLocaleDateString()}</p>
+    <main>
+      <div className="flex-row justify-center">
+        <div className="col-12 col-md-8 mb-3"
+        style={{ border: '1px dotted #1a1a1a'} }
+        >
+          <PostForm />
+        </div>
+        <div className="col-12 col-md-8 mb-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <PostList
+              posts={posts}
+              title="Some Feed for Posts..."
+            />
+          )}
+        </div>
       </div>
-    </div>
-    <div className="card">
-        <h2 className='title'>Workout #1</h2>
-        <p className='exercise'> 2 Mile Outdoor Run</p>
-        <p className='calories'>200 calories Burned</p>
-        <p className='time'>20 minutes</p>
-        <button className='remove'>Remove</button>
-      </div>
-  </>
+    </main>
   );
 };
 
+
+          
 export default Main;
