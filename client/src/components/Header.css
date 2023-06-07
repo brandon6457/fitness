@@ -13,9 +13,10 @@
     background-color: var(--FITGREEN);
     color: var(--FITYELLOW);
 }
+
 .ityd {
     font-family: 'Indie Flower', cursive;
     font-style: italic;
     color: var(--FITWHITE);
     margin-left: 10px;;
-}
+};
