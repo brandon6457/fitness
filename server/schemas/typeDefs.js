@@ -11,11 +11,21 @@ const typeDefs = gql`
     heightIn: Int
     weight: Int
     age: Int
+    posts: [Post]!
+  }
+
+  type Post {
+    _id: ID
+    postText: String
+    postAuthor: String
+    createdAt: String
   }
 
   type Query {
     users: [User]
     user(email: String!): User
+    posts(email: String): [Post]
+    post(postId: ID!): Post
   }
 
   type Auth {
@@ -43,6 +53,8 @@ const typeDefs = gql`
       weight: Int!
       age: Int!
     ): User
+    addPost(postText: String!, postAuthor: String! ): Post
+    removePost(postId: ID!): Post
   }
 `;
 
