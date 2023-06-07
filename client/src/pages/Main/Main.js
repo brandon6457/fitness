@@ -20,7 +20,7 @@ const Main = () => {
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
-            <div>Loading...</div>
+            <div>Loading.</div>
           ) : (
             <PostList posts={posts} title="Some Feed for Posts..." />
           )}
