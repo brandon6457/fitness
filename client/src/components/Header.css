@@ -12,10 +12,11 @@
     justify-content: center;
     background-color: var(--FITGREEN);
     color: var(--FITYELLOW);
-/* this is a comment */
+};
+
 .ityd {
     font-family: 'Indie Flower', cursive;
     font-style: italic;
     color: var(--FITWHITE);
     margin-left: 10px;;
-}
+};
