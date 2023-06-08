@@ -88,59 +88,58 @@ export default function Home() {
           </Text>
           <form onSubmit={handleFormSubmit}>
 
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="error"
-            size="lg"
-            placeholder="Email"
-            name="email"
-            onChange={handleChange}
-            value={formState.email}
+            <Input
+              clearable
+              bordered
+              fullWidth
+              color="error"
+              size="lg"
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+              value={formState.email}
             />
-          <Spacer y={1} />
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="error"
-            size="lg"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            value={formState.password}            
+            <Spacer y={1} />
+            <Input
+              clearable
+              bordered
+              fullWidth
+              color="error"
+              size="lg"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+              value={formState.password}
             />
-          <Spacer y={1} />
-          <IconButton onClick={handleShowPassword}>
-          
-          </IconButton>
+            <Spacer y={1} />
+            <Button
+              onClick={handleShowPassword}>Show</Button>
+            <Button css={{
+              color: '#4cb944',
+              backgroundColor: '#eec643',
+              fontSize: '18px'
+            }}>Sign Up</Button>
+            <Spacer y={1} />
+            <Button css={{
+              color: '#eec643',
+              backgroundColor: '#4cb944',
+              fontSize: '18px'
+            }}>Sign in</Button>
 
-      <Button
-        css={{
-          color: "#4cb944",
-          backgroundColor: "#eec643",
-          fontSize: "18px",
-          
-        }}
-        type="submit"
-        >
-        Sign In
-      </Button>
-        </form>
+            {/* <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+              value={formState.password}
+            /> */}
+
+            <Spacer y={1} />
+
+          </form>
 
           <Spacer y={1} />
-          <Link to="/signup"
-            css={{
-              color: "#eec643",
-              backgroundColor: "#4cb944",
-              fontSize: "18px",
-              
-            }}
-          >
-            Sign Up
-          </Link>
         </Card>
       </Container>
     </div>

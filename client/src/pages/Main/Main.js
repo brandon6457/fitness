@@ -1,55 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import './Main.css';
-import {
-  Card,
-  Spacer,
-  Button,
-  Text,
-  Input,
-  Container,
-} from '@nextui-org/react';
+import React from "react";
+import "./Main.css";
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../../utils/queries";
+import PostList from "../../components/PostList";
+import PostForm from "../../components/PostForm";
 
-const WorkoutCard = () => {
-  return (
-    <div className="card">
-      <h2 className='title'>Workout #1</h2>
-      <p className='exercise'> 2 Mile Outdoor Run</p>
-      <p className='calories'>200 calories Burned</p>
-      <p className='time'>20 minutes</p>
-      <button className='remove'>Remove</button>
-    </div>
-  )
-}
 
 const Main = () => {
-  let [date, setDate] = useState(new Date());
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
 
-  useEffect(() => {
-    var timer = setInterval(() => setDate(new Date()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  });
-  
   return (
-    <>
-      <Container
-          display="flex"
-          alignItems="center"
-          justify="center"
-          css={{ minHeight: '100vh' }}
+    <main>
+      <div className="flex-row justify-center">
+        <div
+          className="col-12 col-md-8 mb-3"
+          style={{ border: "1px dotted #1a1a1a" }}
         >
-        <Card css={{ maxWidth: '420px', p: '20px' }}>
-          <div className="circle-container">
-            <div className="circle">
-              <p className="date">{date.toLocaleDateString()}</p>
-            </div>
-          </div>
-        </Card>
-      </Container>
-      <WorkoutCard />
-    </>
+          <PostForm />
+        </div>
+        <div className="col-12 col-md-8 mb-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <PostList posts={posts} title="Start Your Fitness Journey Here..." />
+          )}
+        </div>
+      </div>
+    </main>
   );
 };
-
+        
 export default Main;
+

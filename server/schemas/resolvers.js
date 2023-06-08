@@ -7,7 +7,7 @@ const resolvers = {
     users: async () => {
       return User.find().populate("posts");
     },
-    user: async (parent, { email }) => {
+    postByUser: async (parent, { email }) => {
       return User.findOne({ email }).populate("posts");
     },
     posts: async (parent, { email }) => {
@@ -49,10 +49,10 @@ const resolvers = {
       const user = await User.findOneAndUpdate(args);
       return user;
     },
-    addPost: async (parent, { thoughtText, thoughtAuthor }) => {
-      const post = await Post.create({ thoughtText, thoughtAuthor });
+    addPost: async (parent, { postText, postAuthor }) => {
+      const post = await Post.create({ postText, postAuthor });
       await User.findOneAndUpdate(
-        { email: thoughtAuthor },
+        { email: postAuthor },
         { $addToSet: { posts: post._id } }
       );
       return post;
@@ -60,6 +60,9 @@ const resolvers = {
     removePost: async (parent, { postId }) => {
       return Post.findOneAndDelete({ _id: postId });
     },
+    updatePost: async (parent, { postId, postText }) => {
+      return Post.findOneAndUpdate({ _id: postId }, { postText });
+    }
   },
 };
 

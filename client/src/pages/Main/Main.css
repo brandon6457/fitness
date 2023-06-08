@@ -1,8 +1,8 @@
-/* #eec643 yellow
-#1c1c1c black
-#4cb944 green
-#fafaff white
- #de541e red */
+/* * { UNCOMMENT FOR TESTING BOXES
+  outline: 1px solid red;
+} */
+
+
 .container {
   display: flex;
   justify-content: center;

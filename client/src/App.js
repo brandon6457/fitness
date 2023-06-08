@@ -5,6 +5,8 @@ import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
+import Post from "./pages/Post/SinglePost";
+
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {
   ApolloClient,
@@ -13,6 +15,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+// import SinglePost from "./pages/Post/SinglePost";
+
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -54,6 +58,8 @@ function App() {
           <Route path="/main" element={<Main />}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/signup" element={<Signup />}/>
+          <Route path ="/post/:postId" element={<Post/>}
+          />
         </Routes>
         <Footer />
       </div>
