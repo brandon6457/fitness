@@ -1,4 +1,5 @@
 import React from "react";
+import "./PostList.css";
 
 const PostList = ({ posts, title }) => {
   if (!posts.length) {
@@ -6,18 +7,18 @@ const PostList = ({ posts, title }) => {
   }
 
   return (
-    <div>
+    <div class="postList">
       <h3>{title}</h3>
       {posts &&
         posts.map((post) => (
-          <div key={post._id} className="card mb-3">
-            <h3 className="card-header bg-dark text-light p-2 m-0">
+          <div class="userPost" key={post._id}>
+            <h3>
               {post.postAuthor} <br />
               <span style={{ fontSize: "1rem" }}>
                 shared this tip on {post.createdAt}
               </span>
             </h3>
-            <div className="card-body bg-dark text-light p-2">
+            <div>
               <p>{post.postText}</p>
             </div>
           </div>
