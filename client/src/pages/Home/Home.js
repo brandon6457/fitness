@@ -113,18 +113,31 @@ export default function Home() {
             />
             <Spacer y={1} />
             <Button
-              onClick={handleShowPassword}>Show</Button>
-            <Button css={{
-              color: '#4cb944',
-              backgroundColor: '#eec643',
-              fontSize: '18px'
-            }}>Sign Up</Button>
-            <Spacer y={1} />
-            <Button css={{
-              color: '#eec643',
-              backgroundColor: '#4cb944',
-              fontSize: '18px'
-            }}>Sign in</Button>
+              onClick={handleShowPassword}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </Button>
+            <Button
+              css={{
+                color: "#4cb944",
+                backgroundColor: "#eec643",
+                fontSize: "18px",
+              }}
+              onClick={() => window.location.replace("/signup")}
+            >
+              Sign Up
+            </Button>
+            <Button
+              css={{
+                color: "#eec643",
+                backgroundColor: "#4cb944",
+                fontSize: "18px",
+              }}
+              type="submit"
+            >
+              Sign In
+            </Button>
+
 
             {/* <input
               name="password"
