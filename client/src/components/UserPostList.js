@@ -5,28 +5,30 @@ import { Card } from "@nextui-org/react";
 import "./PostForm.css";
 import Auth from "../utils/auth";
 import { Button, Modal, Typography, Box, TextField } from "@mui/material";
+import { QUERY_POSTS } from "../utils/queries";
+import { QUERY_SINGLE_USER_POSTS } from "../utils/queries";
 
-const UserPostList = ({ posts, error, userInfo }) => {
-  const [ postToEdit, setPostToEdit ] = React.useState();
-  const [ openModal, setOpenModal ] = React.useState(false);
+const UserPostList = ({ posts, userInfo }) => {
+  const [postToEdit, setPostToEdit] = React.useState();
+  const [openModal, setOpenModal] = React.useState(false);
   const [deletePost, { data }] = useMutation(REMOVE_POST);
-  const [updatePost, { data: updateData }] = useMutation(UPDATE_POST);
-
-  //  teamName is a read-only variable 
-  // setTeamName is a function that updates the value of teamName
-  // const [ teamName, setTeamName ] = React.useState("Orlando Magic");
-
-  // React.useEffect(() => {
-  //   console.log('My team name is: ', teamName)
-
-  //   setTeamName("76rs")
-
-  // }, [teamName])
-  
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+  const [updatePost, { error }] = useMutation(UPDATE_POST, {
+    update(cache, { data: { updatePost } }) {
+      try {
+        const {postByUser:{posts}} = cache.readQuery({ query: QUERY_SINGLE_USER_POSTS, variables: { email: userInfo.email } });
+        console.log(posts);
+        cache.writeQuery({
+          query: QUERY_SINGLE_USER_POSTS, variables: { email: userInfo.email },
+          data: { postByUser:{
+            posts: [...posts, updatePost]
+          }  
+        },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
 
   console.log("profile: ", userInfo);
   const fullName =
@@ -38,12 +40,10 @@ const UserPostList = ({ posts, error, userInfo }) => {
 
   const HandleDeletePost = async (postId) => {
     console.log("postId: ", postId);
-    // call in deletePost mutation
     try {
       const { data } = await deletePost({
         variables: { postId },
       });
-      window.location.reload();
       console.log("deletePost: ", data);
     } catch (err) {
       console.error(err);
@@ -54,23 +54,21 @@ const UserPostList = ({ posts, error, userInfo }) => {
     console.log("post: ", post);
     setPostToEdit(post);
     setOpenModal(true);
-  }
+  };
 
   const HandleEditPost = async (postId) => {
     console.log("postId: ", postId);
     setOpenModal(false);
     try {
-      console.log("postToEdit: ", postToEdit)
+      console.log("postToEdit: ", postToEdit);
       const { data } = await updatePost({
         variables: { postId, postText: postToEdit.postText },
       });
-      window.location.reload();
       console.log("updatePost: ", data);
-
     } catch (error) {
-      
+      console.log(error);
     }
-  }
+  };
 
   return (
     <div>
@@ -102,60 +100,60 @@ const UserPostList = ({ posts, error, userInfo }) => {
               >
                 Delete
               </button>
-            {
-              openModal && postToEdit &&  (
-              <Modal
-                open={openModal}
-                onClose={() => setOpenModal(false)}
-              aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: 400,
-                  bgcolor: 'background.paper',
-                  border: '2px solid #000',
-                  boxShadow: 24,
-                  p: 4,
-                }}>
-                  <Typography
-                    id="modal-modal-title"
-                    variant="h6"
-                    component="h2"
-                    style={{ marginBottom: "1rem" }}
+              {openModal && postToEdit && (
+                <Modal
+                  open={openModal}
+                  onClose={() => setOpenModal(false)}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 400,
+                      bgcolor: "background.paper",
+                      border: "2px solid #000",
+                      boxShadow: 24,
+                      p: 4,
+                    }}
                   >
-                    Edit Post
-                  </Typography>
-                  <TextField 
-                    id="outlined-basic"
-                    label="Edit Post"
-                    variant="outlined"
-                    fullWidth
-                    multiline
-                    rows={4}
-                    defaultValue={postToEdit.postText}
-                    onChange={(e) => setPostToEdit({ ...postToEdit, postText: e.target.value })}
-
-                  />
-                  <Button
-                  style={{ marginTop: "1rem" }}
-                    variant="contained"
-                    color="primary"
-                    onClick={() => HandleEditPost(postToEdit._id)}
-                  >
-                    Save
-                  </Button>
-                </Box>
-              </Modal> 
-              ) 
-
-
-            }
-
-              
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                      style={{ marginBottom: "1rem" }}
+                    >
+                      Edit Post
+                    </Typography>
+                    <TextField
+                      id="outlined-basic"
+                      label="Edit Post"
+                      variant="outlined"
+                      fullWidth
+                      multiline
+                      rows={4}
+                      defaultValue={postToEdit.postText}
+                      onChange={(e) =>
+                        setPostToEdit({
+                          ...postToEdit,
+                          postText: e.target.value,
+                        })
+                      }
+                    />
+                    <Button
+                      style={{ marginTop: "1rem" }}
+                      variant="contained"
+                      color="primary"
+                      onClick={() => HandleEditPost(postToEdit._id)}
+                    >
+                      Save
+                    </Button>
+                  </Box>
+                </Modal>
+              )}
             </Card>
           ))}
         </>
