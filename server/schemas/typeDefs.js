@@ -23,7 +23,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(email: String!): User
+    postByUser(email: String!): User
     posts(email: String): [Post]
     post(postId: ID!): Post
   }
@@ -55,6 +55,7 @@ const typeDefs = gql`
     ): User
     addPost(postText: String!, postAuthor: String! ): Post
     removePost(postId: ID!): Post
+    updatePost(postId: ID!, postText: String!): Post
   }
 `;
 

@@ -15,7 +15,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import SinglePost from "./pages/Post/SinglePost";
+// import SinglePost from "./pages/Post/SinglePost";
 
 
 const authLink = setContext((_, { headers }) => {

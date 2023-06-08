@@ -7,7 +7,7 @@ const resolvers = {
     users: async () => {
       return User.find().populate("posts");
     },
-    user: async (parent, { email }) => {
+    postByUser: async (parent, { email }) => {
       return User.findOne({ email }).populate("posts");
     },
     posts: async (parent, { email }) => {
@@ -60,6 +60,9 @@ const resolvers = {
     removePost: async (parent, { postId }) => {
       return Post.findOneAndDelete({ _id: postId });
     },
+    updatePost: async (parent, { postId, postText }) => {
+      return Post.findOneAndUpdate({ _id: postId }, { postText });
+    }
   },
 };
 

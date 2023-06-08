@@ -125,6 +125,7 @@ export default function Home() {
               backgroundColor:'#4cb944',
               fontSize:'18px'}}>Sign in</Button> 
             name="password"
+            type="password"
             placeholder="Password"
             onChange={handleChange}
             value={formState.password}
