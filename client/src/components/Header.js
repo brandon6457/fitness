@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className="mainHeader">
             <h1>Fitness</h1>
-            <h2 class="ityd">( into your day )</h2>
+            <h2 className="ityd">( into your day )</h2>
         </div>
     );
 };
