@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Card,
   Spacer,
@@ -112,8 +112,8 @@ export default function Home() {
               value={formState.password}
             />
             <Spacer y={1} />
-            <Button
-              onClick={handleShowPassword}>Show</Button>
+            {/* <Button
+              onClick={handleShowPassword}>Show</Button> */}
             <Button css={{
               color: '#4cb944',
               backgroundColor: '#eec643',
@@ -125,14 +125,6 @@ export default function Home() {
               backgroundColor: '#4cb944',
               fontSize: '18px'
             }}>Sign in</Button>
-
-            {/* <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={formState.password}
-            /> */}
 
             <Spacer y={1} />
 
