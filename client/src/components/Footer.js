@@ -1,39 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Footer.css';
+import  AuthService from '../utils/auth'
 
-const Footer = ({ activeSection, handleNavigation }) => {
+const Footer = () => {
+  const { logout } = AuthService;
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link
-            to="/"
-            className={activeSection === null ? 'active' : ''}
-            onClick={() => handleNavigation(null)}
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/profile"
-            className={activeSection === 'profile' ? 'active' : ''}
-            onClick={() => handleNavigation('profile')}
-          >
-            Profile
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/main"
-            className={activeSection === 'main' ? 'active' : ''}
-            onClick={() => handleNavigation('main')}
-          >
-            Main
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <footer className="footer">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/" className="footer-button">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile" className="footer-button">
+              Profile
+            </Link>
+          </li>
+          <li>
+            <Link to="/main" className="footer-button">
+              Main
+            </Link>
+          </li>
+          <li>
+            <button className='footer-button' onClick={()=>logout()}>
+              Log Out
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   );
 };
 
