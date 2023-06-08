@@ -7,7 +7,7 @@
 }
 
 .mainHeader {
-  background: linear-gradient(to right, #4cb944, #1b7e27);
+  background: linear-gradient(to right, #f2f2f2, #f2f2f2);
   border-bottom: 2px solid #de541e;
   padding: 20px;
   display: flex;
@@ -16,7 +16,7 @@
 }
 
 .headerTitle {
-  color: #eec643;
+  color: #1c1c1c;
   font-size: 28px;
   font-weight: bold;
 }
@@ -39,14 +39,14 @@
   padding: 8px 16px;
   font-size: 16px;
   border-radius: 10px;
-  background-color: #eec643;
+  background-color: #1c1c1c;
   color: #4cb944;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 .icon {
-  color: #1c1c1c;
+  color: #4cb944;
   font-size: 30px;
 }
 

@@ -12,7 +12,7 @@ const ProfilePage = () => {
   const { loading, data, error } = useQuery(QUERY_SINGLE_USER_POSTS, {
     variables: { email },
   });
-  
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
   // optional chaining operator with nullish coalescing
   const userPosts = data?.postByUser?.posts ?? [];
-console.log("userPosts: ", userPosts);
+  console.log("userPosts: ", userPosts);
   return (
     <Container
       display="flex"

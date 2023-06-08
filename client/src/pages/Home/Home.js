@@ -13,6 +13,7 @@ import {
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import "./Home.css";
 export default function Home() {
 
    const [formState, setFormState] = React.useState({ email: '', password: '' });
@@ -62,6 +63,11 @@ export default function Home() {
 
    return (
       <div>
+         <div>
+            <video loop autoPlay muted id="bg-video">
+               <source src={require("../../videos/running.mp4")} type="video/mp4" />
+            </video>
+         </div>
          <Container
             display="flex"
             alignItems="center"
