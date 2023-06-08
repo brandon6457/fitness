@@ -52,8 +52,20 @@ export const QUERY_SINGLE_POST = gql`
   }
 `;
 
-
-
+export const QUERY_SINGLE_USER_POSTS = gql`
+query Query($email: String!) {
+  postByUser(email: $email) {
+    posts {
+      _id
+      postText
+      postAuthor
+    }
+    firstName
+    lastName
+    age
+  }
+}
+`;
 
 export const QUERY_SINGLE_USER = gql`
   query singleuser($userId: ID!) {

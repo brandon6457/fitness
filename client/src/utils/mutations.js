@@ -41,3 +41,17 @@ export const ADD_POST = gql`
     }
   }
 `;
+
+export const UPDATE_POST = gql`
+    mutation Mutation($postId: ID!, $postText: String!) {
+  updatePost(postId: $postId, postText: $postText) {
+    postText
+  }
+}`
+
+export const REMOVE_POST = gql`
+mutation Mutation($postId: ID!) {
+  removePost(postId: $postId) {
+    postText
+  }
+}`

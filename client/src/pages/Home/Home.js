@@ -106,6 +106,7 @@ export default function Home() {
             color="error"
             size="lg"
             name="password"
+            type="password"
             placeholder="Password"
             onChange={handleChange}
             value={formState.password}
