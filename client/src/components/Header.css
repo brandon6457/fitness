@@ -1,22 +1,77 @@
 :root {
-    --FITYELLOW: #eec643;
-    --FITBLACK: #1c1c1c;
-    --FITGREEN: #4cb944;
-    --FITWHITE: #fafaff;
-    --FITRED: #de541e;
+  --FITYELLOW: #eec643;
+  --FITBLACK: #1c1c1c;
+  --FITGREEN: #4cb944;
+  --FITWHITE: #fafaff;
+  --FITRED: #de541e;
 }
 
 .mainHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--FITGREEN);
-    color: var(--FITYELLOW);
+  background: linear-gradient(to right, #4cb944, #1b7e27);
+  border-bottom: 2px solid #de541e;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.ityd {
-    font-family: 'Indie Flower', cursive;
-    font-style: italic;
-    color: var(--FITWHITE);
-    margin-left: 10px;;
-};
+.headerTitle {
+  color: #eec643;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.subTitle {
+  color: #1c1c1c;
+}
+
+.headerButtons {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.headerButton {
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #eec643;
+  color: #4cb944;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.icon {
+  color: #1c1c1c;
+  font-size: 30px;
+}
+
+.headerButton:hover {
+  background-color: #de541e;
+}
+.headerButton:active {
+  background-color: #1c1c1c;
+}
+
+@media (max-width: 768px) {
+  .mainHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerTitle {
+    margin-bottom: 10px;
+  }
+
+  .headerButtons {
+    margin-top: 10px;
+  }
+
+  .headerButton {
+    margin-left: 0;
+  }
+}
