@@ -1,12 +1,13 @@
 import React from "react";
+import { BiShow, BiHide } from 'react-icons/bi';
 // import { Link } from "react-router-dom";
 import {
-  Card,
-  Spacer,
-  Button,
-  Text,
-  Input,
-  Container,
+   Card,
+   Spacer,
+   Button,
+   Text,
+   Input,
+   Container,
 } from "@nextui-org/react";
 
 import { useMutation } from "@apollo/client";
@@ -14,137 +15,145 @@ import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 export default function Home() {
 
-  const [formState, setFormState] = React.useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+   const [formState, setFormState] = React.useState({ email: '', password: '' });
+   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value)
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  // submit form
-  const handleFormSubmit = async (event) => {
-    console.log('event', event)
-    event.preventDefault();
-    console.log(formState);
-    try {
-      const { data } = await login({
-        variables: { ...formState },
+   // update state based on form input changes
+   const handleChange = (event) => {
+      const { name, value } = event.target;
+      console.log(name, value)
+      setFormState({
+         ...formState,
+         [name]: value,
       });
+   };
 
-      Auth.login(data.login.token);
+   // submit form
+   const handleFormSubmit = async (event) => {
+      console.log('event', event)
+      event.preventDefault();
+      console.log(formState);
+      try {
+         const { data } = await login({
+            variables: { ...formState },
+         });
 
-      // redirect to home page
-      window.location.replace("/profile");
+         Auth.login(data.login.token);
 
-    } catch (e) {
-      console.error(e);
-    }
+         // redirect to home page
+         window.location.replace("/profile");
 
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
-  };
+      } catch (e) {
+         console.error(e);
+      }
 
-  const [showPassword, setShowPassword] = React.useState(false);
+      // clear form values
+      setFormState({
+         email: '',
+         password: '',
+      });
+   };
 
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+   const [showPassword, setShowPassword] = React.useState(false);
 
-  return (
-    <div>
-      <Container
-        display="flex"
-        alignItems="center"
-        justify="center"
-        css={{
-          minHeight: "100vh",
-        }}
-      >
-        <Card css={{ mw: "420px", p: "20px" }}>
-          <Text
-            size={44}
-            weight="bold"
+   const handleShowPassword = () => {
+      setShowPassword(!showPassword);
+   };
+
+   return (
+      <div>
+         <Container
+            display="flex"
+            alignItems="center"
+            justify="center"
             css={{
-              color: "#eec643",
-              textAlign: "center",
-              marginBottom: "20px",
-              backgroundColor: "#4cb944",
-              borderRadius: "10px",
-              padding: "10px",
-              boxShadow: "0 0 4px #4cb944",
+               minHeight: "100vh",
             }}
-          >
-            Fitness Login
-          </Text>
-          <form onSubmit={handleFormSubmit}>
+         >
+            <Card css={{ mw: "420px", p: "20px" }}>
+               <Text
+                  size={44}
+                  weight="bold"
+                  css={{
+                     color: "#eec643",
+                     textAlign: "center",
+                     marginBottom: "20px",
+                     backgroundColor: "#4cb944",
+                     borderRadius: "10px",
+                     padding: "10px",
+                     boxShadow: "0 0 4px #4cb944",
+                  }}
+               >
+                  Fitness Login
+               </Text>
+               <form onSubmit={handleFormSubmit}>
 
-            <Input
-              clearable
-              bordered
-              fullWidth
-              color="error"
-              size="lg"
-              placeholder="Email"
-              name="email"
-              onChange={handleChange}
-              value={formState.email}
-            />
-            <Spacer y={1} />
-            <Input
-              clearable
-              bordered
-              fullWidth
-              color="error"
-              size="lg"
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={formState.password}
-            />
-            <Spacer y={1} />
-            <Button
-              onClick={handleShowPassword}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </Button>
-            <Button
-              css={{
-                color: "#4cb944",
-                backgroundColor: "#eec643",
-                fontSize: "18px",
-              }}
-              onClick={() => window.location.replace("/signup")}
-            >
-              Sign Up
-            </Button>
-            <Button
-              css={{
-                color: "#eec643",
-                backgroundColor: "#4cb944",
-                fontSize: "18px",
-              }}
-              type="submit"
-            >
-              Sign In
-            </Button>
+                  <Input
+                     clearable
+                     bordered
+                     fullWidth
+                     color="error"
+                     size="lg"
+                     placeholder="Email"
+                     name="email"
+                     onChange={handleChange}
+                     value={formState.email}
+                  />
+                  <Spacer y={1} />
+                  <Input
+                     clearable
+                     bordered
+                     fullWidth
+                     color="error"
+                     size="lg"
+                     type={showPassword ? "text" : "password"}
+                     name="password"
+                     placeholder="Password"
+                     onChange={handleChange}
+                     value={formState.password}
+                  />
+                  <Spacer y={1} />
+                  {showPassword ? (<BiShow size={30}
+                     onClick={handleShowPassword}
+                  />) : (
+                     <BiHide size={30}
+                        onClick={handleShowPassword}
+                     />)}
+                  {/* {showPassword ? "Hide" : "Show"}
+            </BiShow> */}
+                  <Button
+                     css={{
+                        color: "#4cb944",
+                        backgroundColor: "#eec643",
+                        fontSize: "18px",
+                        marginTop: "10px",
 
-            <Spacer y={1} />
 
-          </form>
+                     }}
+                     onClick={() => window.location.replace("/signup")}
+                  >
+                     Sign Up
+                  </Button>
+                  <Button
+                     css={{
+                        color: "#eec643",
+                        backgroundColor: "#4cb944",
+                        fontSize: "18px",
+                        marginTop: "20px",
 
-          <Spacer y={1} />
-        </Card>
-      </Container>
-    </div>
-  );
+                     }}
+                     type="submit"
+                  >
+                     Sign In
+                  </Button>
+
+                  <Spacer y={1} />
+
+               </form>
+
+               <Spacer y={1} />
+            </Card>
+         </Container>
+      </div>
+   );
 }

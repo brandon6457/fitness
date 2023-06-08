@@ -25,9 +25,9 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <button className='footer-button' onClick={()=>logout()}>
+            <Link to="/" className='footer-button' onClick={()=>logout()}>
               Log Out
-            </button>
+            </Link>
           </li>
         </ul>
       </nav>
