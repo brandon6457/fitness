@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Card,
   Spacer,
@@ -137,15 +137,6 @@ export default function Home() {
             >
               Sign In
             </Button>
-
-
-            {/* <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={formState.password}
-            /> */}
 
             <Spacer y={1} />
 
