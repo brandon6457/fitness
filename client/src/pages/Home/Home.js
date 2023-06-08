@@ -1,8 +1,3 @@
-// #eec643 saffron
-// #1c1c1c black
-// #4cb944 green
-// #fafaff white
-// #de541e orange
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -58,6 +53,11 @@ export default function Home() {
     });
   };
 
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div>
@@ -105,6 +105,25 @@ export default function Home() {
             fullWidth
             color="error"
             size="lg"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            value={formState.password}            
+            />
+          <Spacer y={1} />
+           <IconButton
+            onClick={handleShowPassword}
+            >
+          <Button css={{
+              color : '#4cb944',
+              backgroundColor:'#eec643',
+              fontSize:'18px'}}>Sign Up</Button> 
+              <Spacer y={1} />
+          <Button css={{
+              color : '#eec643',
+              backgroundColor:'#4cb944',
+              fontSize:'18px'}}>Sign in</Button> 
             name="password"
             placeholder="Password"
             onChange={handleChange}
