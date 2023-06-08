@@ -11,6 +11,10 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background: var(--FITWHITE);
+    margin: 10% 35% 10% 35%;
+    border-radius: 10px;
+    border: 1px solid var(--FITGREEN);
 }
 
 .postForm textarea {
@@ -18,18 +22,30 @@
     line-height: 1.5;
     resize: vertical;
     margin-bottom: 10px;
+    border: 1px solid var(--FITGREEN);
+}
+
+.postForm h2 {
+    background-color: var(--FITGREEN);
+    color: var(--FITYELLOW);
+    width: 100%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
 }
 
 .postForm button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    text-decoration: none;
+    padding: 10px;
     border: none;
-    cursor: pointer;
+    border-radius: 10px;
+    background-color: var(--FITGREEN);
+    color: var(--FITYELLOW);
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .postForm button:hover {
-    background-color: #0056b3;
+    background-color: var(--FITRED);
 }
 
 .postForm .text-error {
