@@ -7,47 +7,53 @@
 }
 
 .postForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--FITWHITE);
-    margin: 10% 35% 10% 35%;
+    padding: 20px;
+    background-color: #f8f8f8;
     border-radius: 10px;
-    border: 1px solid var(--FITGREEN);
-}
-
-.postForm textarea {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .postForm h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #4cb944;
+  }
+  
+  .characterCount {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #666;
+  }
+  
+  .characterCount.text-error {
+    color: #de541e;
+  }
+  
+  form textarea {
     width: 100%;
-    line-height: 1.5;
-    resize: vertical;
-    margin-bottom: 10px;
-    border: 1px solid var(--FITGREEN);
-}
-
-.postForm h2 {
-    background-color: var(--FITGREEN);
-    color: var(--FITYELLOW);
-    width: 100%;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-}
-
-.postForm button {
-    text-decoration: none;
+    height: 100px;
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  form .btn {
+    padding: 10px 20px;
+    background-color: #4cb944;
     border: none;
-    border-radius: 10px;
-    background-color: var(--FITGREEN);
-    color: var(--FITYELLOW);
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.postForm button:hover {
-    background-color: var(--FITRED);
-}
-
-.postForm .text-error {
-    color: red;
-}
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: #de541e;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }

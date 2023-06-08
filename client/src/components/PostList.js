@@ -7,22 +7,22 @@ const PostList = ({ posts, title }) => {
   }
 
   return (
-    <div class="postList">
+    <div className="postList">
       <h3>{title}</h3>
-      {posts &&
-        posts.map((post) => (
-          <div class="userPost" key={post._id}>
-            <h3>
-              {post.postAuthor} <br />
-              <span style={{ fontSize: "1rem" }}>
-                shared this tip on {post.createdAt}
-              </span>
-            </h3>
-            <div>
-              <p>{post.postText}</p>
+      <div className="postContainer">
+        {posts &&
+          posts.map((post) => (
+            <div className="userPost" key={post._id}>
+              <div className="postHeader">
+                <h3 className="postAuthor">{post.postAuthor}</h3>
+                <span className="postDate">{post.createdAt}</span>
+              </div>
+              <div className="postContent">
+                <p>{post.postText}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };

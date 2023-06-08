@@ -39,8 +39,8 @@
   padding: 8px 16px;
   font-size: 16px;
   border-radius: 10px;
-  background-color: #1c1c1c;
-  color: #4cb944;
+  background-color: #4cb944;
+  color: #1c1c1c;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
@@ -54,7 +54,7 @@
   background-color: #de541e;
 }
 .headerButton:active {
-  background-color: #1c1c1c;
+  background-color: #4cb944;
 }
 
 @media (max-width: 768px) {
