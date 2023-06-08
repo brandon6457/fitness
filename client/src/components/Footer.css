@@ -33,18 +33,20 @@
   .logoIcon {
     color: #4cb944;
     font-size: 24px;
-    margin-right: 10px;
+    margin-left: 10px;
   }
   
   .logoText {
     font-size: 20px;
     font-weight: bold;
+    margin-left: 10px;
   }
   
   .footerText {
     color: #666666;
     font-size: 14px;
     line-height: 1.5;
+    margin-left: 10px;
   }
   
   .sectionTitle {
