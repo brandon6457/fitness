@@ -77,7 +77,7 @@ const UserPostList = ({ posts, userInfo }) => {
 
   return (
     <div>
-      <h3>{fullName}'s Posts</h3>
+      <h3 className="nameTitle">{fullName}'s Posts</h3>
       {posts.length === 0 ? (
         <p>{fullName} has not posted anything yet.</p>
       ) : (

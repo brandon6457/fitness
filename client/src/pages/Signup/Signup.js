@@ -75,10 +75,10 @@ export default function SignUp() {
             align="center"
             sx={{
               fontWeight: "bold",
-              color: "#eec643",
+              color: "#1c1c1c",
               backgroundColor: "#4cb944",
               borderRadius: "10px",
-              padding: "10px",
+              padding: "13px",
               boxShadow: "0 0 4px #4cb944",
             }}
           >
@@ -193,8 +193,8 @@ export default function SignUp() {
                 fullWidth
                 sx={{
                   mt: 2,
-                  backgroundColor: "#eec643",
-                  color: "#4cb944",
+                  backgroundColor: "#4cb944",
+                  color: "#1c1c1c",
                   fontWeight: "bold",
                   fontSize: "18px",
                   "&:hover": {

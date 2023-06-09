@@ -1,4 +1,64 @@
+.nameTitle {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-  
+.card-date {
+  font-size: 0.8rem;
+  color: #777;
+}
 
-  
+.card-body {
+  margin-bottom: 1rem;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #45a049;
+}
+@media (max-width: 600px) {
+  .nameTitle{
+    margin-left: 2rem;
+  }
+  .card {
+    word-wrap: break-word; 
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .nameTitle{
+    margin-left: 2rem;
+  }
+  .card {
+    margin-left: 2rem;
+    word-wrap: break-word; 
+  }
+}
+
+@media (min-width: 1201px) {
+  .card {
+    word-wrap: break-word; 
+  }
+}
