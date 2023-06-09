@@ -54,8 +54,11 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 When contributing to this project, please follow the existing code style, maintain clear and concise commit messages, and provide appropriate documentation when introducing new features or changes.
 
 [Alan Pereyro](https://github.com/APereyro)
+
 [Ephrain F. Reliford](https://github.com/SurosRegime)
+
 [Brandon Morgan](https://github.com/brandon6457)
+
 [Michael McLeod](https://github.com/ChemicalModel)
 
 # License
