@@ -9,9 +9,16 @@ import "./Profile.css";
 const ProfilePage = () => {
   const profile = Auth.getProfile();
   const { email } = profile.data;
-  const { loading, data, error } = useQuery(QUERY_SINGLE_USER_POSTS, {
+
+  const { loading, data, error, refetch } = useQuery(QUERY_SINGLE_USER_POSTS, {
     variables: { email },
   });
+
+  React.useEffect(() => {
+    refetch().catch((err) => {
+      console.error(err);
+    });
+  }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -25,6 +32,7 @@ const ProfilePage = () => {
   };
 
   const userPosts = data?.postByUser?.posts ?? [];
+
 
   return (
     <Container
