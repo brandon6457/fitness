@@ -27,6 +27,11 @@ export default function Contact() {
   
     return (
       <div className="contact-container">
+        <div>
+        <video loop autoPlay muted id="bg-video">
+          <source src={require("../../videos/Boxing.mp4")} type="video/mp4" />
+        </video>
+      </div>
         <h1 className="contact-heading">Contact Page</h1>
         <div className="contact-content">
           <p className="contact-text">

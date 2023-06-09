@@ -7,6 +7,8 @@ import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
 import Contact from "./pages/Contact/Contact";
 import Post from "./pages/Post/SinglePost";
+import AboutUs from "./pages/About/AboutUs";
+import NotFound from "./pages/NotFound/NotFound";
 // import Workouts from "./pages/Workouts/Workouts";
 import AuthService from "./utils/auth";
 import { BrowserRouter as Router, Route, Routes, Redirect} from "react-router-dom";
@@ -66,7 +68,8 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/contact" element={<Contact />}/>
-          <Route path= "*" element={ <Home />}/>
+          <Route path="/about" element={<AboutUs />}/>
+          <Route path= "*" element={ <NotFound />}/>
           {/* <Route path="/workouts" element={ <Workouts />}/> */}
         </Routes>
         <Footer />
