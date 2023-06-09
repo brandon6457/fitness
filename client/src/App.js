@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
+import Contact from "./pages/Contact/Contact";
 import Post from "./pages/Post/SinglePost";
 import AuthService from "./utils/auth";
 import { BrowserRouter as Router, Route, Routes, Redirect} from "react-router-dom";
@@ -63,6 +64,7 @@ function App() {
           <Route path ="/post/:postId" element={token ? <Post/> : <Home />}/>
           <Route path="/" element={<Home />}/>
           <Route path="/signup" element={<Signup />}/>
+          <Route path="/contact" element={<Contact />}/>
           <Route path= "*" element={ <Home />}/>
         </Routes>
         <Footer />
