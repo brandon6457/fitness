@@ -6,6 +6,7 @@ import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
 import Post from "./pages/Post/SinglePost";
+// import Workouts from "./pages/Workouts/Workouts";
 import AuthService from "./utils/auth";
 import { BrowserRouter as Router, Route, Routes, Redirect} from "react-router-dom";
 import {
@@ -64,6 +65,7 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path= "*" element={ <Home />}/>
+          {/* <Route path="/workouts" element={ <Workouts />}/> */}
         </Routes>
         <Footer />
       </div>
