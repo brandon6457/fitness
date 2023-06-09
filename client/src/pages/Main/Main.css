@@ -1,5 +1,6 @@
 .mainContainer {
   margin-top: 20px;
+  min-height: 100vh;
 }
 
 .flexRow {
