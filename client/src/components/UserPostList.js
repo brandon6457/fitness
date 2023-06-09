@@ -13,6 +13,7 @@ import "./UserPostList.css";
 const UserPostList = ({ posts, userInfo }) => {
   const [postToEdit, setPostToEdit] = React.useState();
   const [openModal, setOpenModal] = React.useState(false);
+
   const [deletePost, { data }] = useMutation(REMOVE_POST);
   const [updatePost, { error }] = useMutation(UPDATE_POST, {
     update(cache, { data: { updatePost } }) {
@@ -48,7 +49,7 @@ const UserPostList = ({ posts, userInfo }) => {
     try {
       const { data } = await deletePost({
         variables: { postId },
-        refetchQueries: [{ query: QUERY_POSTS }],
+        refetchQueries: [{ query: QUERY_SINGLE_USER_POSTS, variables: { email: userInfo.email } }],
       });
       console.log("deletePost: ", data);
     } catch (err) {

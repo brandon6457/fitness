@@ -9,6 +9,8 @@ const Header = () => {
   const logout = () => {
     AuthService.logout();
   };
+const [token, setToken] = React.useState(AuthService.loggedIn() ? AuthService.getToken() : null);
+console.log(token);
 
   return (
     <div className="mainHeader">
@@ -20,26 +22,32 @@ const Header = () => {
       </h1>
 
       <ul className="headerButtons">
+        {!token && (
         <li>
           <Link to="/" className="headerButton">
             Home
           </Link>
         </li>
+        )}
+        {token && (
         <li>
           <Link to="/profile" className="headerButton">
             Profile
           </Link>
         </li>
+        )}
         <li>
           <Link to="/main" className="headerButton">
             Main
           </Link>
         </li>
-        <li>
+        {token && (
+          <li>
           <Link to="/" className="headerButton" onClick={logout}>
             Log Out
           </Link>
         </li>
+        )}
       </ul>
     </div>
   );
