@@ -6,7 +6,15 @@ import PostList from "../../components/PostList";
 import PostForm from "../../components/PostForm";
 
 const Main = () => {
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading, data, refetch } = useQuery(QUERY_POSTS);
+  
+  React.useEffect(() => {
+    refetch().catch((err) => {
+      console.error(err);
+    });
+  }, []);
+
+  
   const posts = data?.posts || [];
 
   return (
