@@ -1,0 +1,45 @@
+:root {
+    --FITYELLOW: #eec643;
+    --FITBLACK: #1c1c1c;
+    --FITGREEN: #4cb944;
+    --FITWHITE: #fafaff;
+    --FITRED: #de541e;
+}
+
+.postList {
+    margin-top: 20px;
+  }
+  
+  .postContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .userPost {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .postHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .postAuthor {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .postDate {
+    font-size: 12px;
+    color: #888888;
+  }
+  
+  .postContent {
+    line-height: 1.5;
+  }

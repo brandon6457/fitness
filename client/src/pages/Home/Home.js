@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BiShow, BiHide } from "react-icons/bi";
 import {
   Card,
   Spacer,
@@ -12,25 +12,22 @@ import {
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { IconButton } from "@mui/material";
+import "./Home.css";
 export default function Home() {
-
-  const [formState, setFormState] = React.useState({ email: '', password: '' });
+  const [formState, setFormState] = React.useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value)
+    console.log(name, value);
     setFormState({
       ...formState,
       [name]: value,
     });
   };
 
-  // submit form
   const handleFormSubmit = async (event) => {
-    console.log('event', event)
+    console.log("event", event);
     event.preventDefault();
     console.log(formState);
     try {
@@ -40,17 +37,14 @@ export default function Home() {
 
       Auth.login(data.login.token);
 
-      // redirect to home page
       window.location.replace("/profile");
-
     } catch (e) {
       console.error(e);
     }
 
-    // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
@@ -62,6 +56,11 @@ export default function Home() {
 
   return (
     <div>
+      <div>
+        <video loop autoPlay muted id="bg-video">
+          <source src={require("../../videos/running.mp4")} type="video/mp4" />
+        </video>
+      </div>
       <Container
         display="flex"
         alignItems="center"
@@ -75,7 +74,7 @@ export default function Home() {
             size={44}
             weight="bold"
             css={{
-              color: "#eec643",
+              color: "#1c1c1c",
               textAlign: "center",
               marginBottom: "20px",
               backgroundColor: "#4cb944",
@@ -87,7 +86,6 @@ export default function Home() {
             Fitness Login
           </Text>
           <form onSubmit={handleFormSubmit}>
-
             <Input
               clearable
               bordered
@@ -113,16 +111,23 @@ export default function Home() {
               value={formState.password}
             />
             <Spacer y={1} />
-            <Button
-              onClick={handleShowPassword}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </Button>
+            {showPassword ? (
+              <BiShow size={30} onClick={handleShowPassword} />
+            ) : (
+              <BiHide size={30} onClick={handleShowPassword} />
+            )}
             <Button
               css={{
-                color: "#4cb944",
-                backgroundColor: "#eec643",
+                color: "#1c1c1c",
+                backgroundColor: "#4cb944",
                 fontSize: "18px",
+                marginTop: "10px",
+                "&:hover": {
+                  backgroundColor: "#3c9933",
+                },
+                "&:active": {
+                  backgroundColor: "#286622",
+                },
               }}
               onClick={() => window.location.replace("/signup")}
             >
@@ -130,28 +135,23 @@ export default function Home() {
             </Button>
             <Button
               css={{
-                color: "#eec643",
+                color: "#1c1c1c",
                 backgroundColor: "#4cb944",
                 fontSize: "18px",
+                marginTop: "20px",
+                "&:hover": {
+                  backgroundColor: "#3c9933",
+                },
+                "&:active": {
+                  backgroundColor: "#286622",
+                },
               }}
               type="submit"
             >
               Sign In
             </Button>
-
-
-            {/* <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={formState.password}
-            /> */}
-
             <Spacer y={1} />
-
           </form>
-
           <Spacer y={1} />
         </Card>
       </Container>

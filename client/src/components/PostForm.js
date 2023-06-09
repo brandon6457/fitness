@@ -53,26 +53,23 @@ const PostForm = () => {
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-error" : ""
-            }`}
-          >
+          <p className={`characterCount ${characterCount === 280 || error ? "text-error" : ""}`}>
             Character Count: {characterCount}/280
           </p>
           <form onSubmit={handleFormSubmit}>
-            <div>
+            <div className="form-group">
               <textarea
+                className="form-control"
                 name="postText"
                 placeholder="Here's a new fitness tip..."
                 value={postText}
                 onChange={handleChange}
               ></textarea>
             </div>
-            <div>
-              <button type="submit">Add Post</button>
+            <div className="form-group">
+              <button className="btn" type="submit">Add Post</button>
             </div>
-            {error && <div>{error.message}</div>}
+            {error && <div className="error-message">{error.message}</div>}
           </form>
         </>
       ) : (

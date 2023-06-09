@@ -5,17 +5,22 @@ import { QUERY_POSTS } from "../../utils/queries";
 import PostList from "../../components/PostList";
 import PostForm from "../../components/PostForm";
 
-
 const Main = () => {
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading, data, refetch } = useQuery(QUERY_POSTS);
+  
+  React.useEffect(() => {
+    refetch().catch((err) => {
+      console.error(err);
+    });
+  }, []);
+
+  
   const posts = data?.posts || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-8 mb-3"
-        >
+    <main className="mainContainer">
+      <div className="flexRow justifyCenter">
+        <div className="col-12 col-md-8 mb-3">
           <PostForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
@@ -29,6 +34,6 @@ const Main = () => {
     </main>
   );
 };
-        
+
 export default Main;
 

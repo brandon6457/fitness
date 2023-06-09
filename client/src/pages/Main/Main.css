@@ -1,77 +1,40 @@
-/* * { UNCOMMENT FOR TESTING BOXES
-  outline: 1px solid red;
-} */
-
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.card {
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #4cb944;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.circle-container {
-  text-align: center;
-}
-
-.circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: #4cb944;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-.date {
-  font-size: 24px;
-  font-weight: bold;
-  color: #eec643;
-}
-
-.title {
-  font-size: 44px;
-  font-weight: bold;
-  color: #1c1c1c;
-}
-
-.exercise {
-  font-weight: bold;
-  font-size: large;
-  color: #eec643;
-}
-
-.calories {
-  color: #de541e;
-  font-weight: bold;
-  font-size: large;
-}
-
-.time {
-  color: #eec643;
-  font-weight: bold;
-  font-size: large;
-}
-
-.remove {
+.mainContainer {
   margin-top: 20px;
-  background-color: #de541e;
-  color: #eec643;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
+}
+
+.flexRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-md-8 {
+  width: 66.67%;
+  max-width: 800px;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .flexRow {
+    margin: 0 -15px;
+  }
+
+  .col-12,
+  .col-md-8 {
+    padding: 0 15px;
+  }
+}
+
+.postContent {
+  word-wrap: break-word;
 }

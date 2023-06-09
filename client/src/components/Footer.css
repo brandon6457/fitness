@@ -4,43 +4,127 @@
     --FITGREEN: #4cb944;
     --FITWHITE: #fafaff;
     --FITRED: #de541e;
-  }
-
-  * {
-    font-family: Arial, Helvetica, sans-serif;
 }
-  
 
 .footer {
-    position: sticky;
-    bottom: 0;
-    background-color: var(--FITWHITE);
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid grey;
-}
-
-ul {
+    background-color: #f2f2f2;
+    padding: 40px 0;
+    margin-top: 20px;
+  }
+  
+  .footerContainer {
     display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 0 10px;
-}
-
-.footer-button {
-    text-decoration: none;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--FITGREEN);
-    color: var(--FITYELLOW);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footerSection {
+    flex-basis: 30%;
+    margin-bottom: 30px;
+  }
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoIcon {
+    color: #4cb944;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  
+  .logoText {
+    font-size: 20px;
     font-weight: bold;
-}
+    margin-left: 10px;
+  }
+  
+  .footerText {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-left: 10px;
+  }
+  
+  .sectionTitle {
+    color: #4cb944;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footerLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footerLinks li {
+    margin-bottom: 8px;
+  }
+  
+  .footerLink {
+    color: #666666;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footerLink:hover {
+    color: #4cb944;
+  }
+  
+  .footerSocialLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .footerSocialLinks li {
+    margin-right: 10px;
+  }
+  
+  .footerSocialLink {
+    color: #666666;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footerSocialLink:hover {
+    color: #4cb944;
+  }
+  
+  .footerBottom {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .footerText {
+    color: #999999;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .footerSection {
+      flex-basis: 100%;
+      text-align: center;
+    }
+  
+    .logoContainer {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  
+    .footerLinks,
+    .footerSocialLinks {
+      justify-content: center;
+    }
+  }
 
-.footer-button:hover {
-    background-color: var(--FITRED);
-}
