@@ -94,6 +94,7 @@ const UserPostList = ({ posts, userInfo }) => {
                 <div className="card-body bg-dark text-light p-2">
                   <p>{post.postText}</p>
                 </div>
+                <div className="flex">
                 <Button
                   className="edit-button"
                   variant="contained"
@@ -112,6 +113,7 @@ const UserPostList = ({ posts, userInfo }) => {
                   <FontAwesomeIcon icon={faTrashAlt} />
                   Delete
                 </Button>
+                </div>
                 {openModal && postToEdit && (
                   <Modal
                     open={openModal}
