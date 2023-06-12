@@ -12,7 +12,10 @@ Post creation: Authenticated users can create new posts, sharing fitness tips, p
 Post listing: The main page displays a list of posts from all users, sorted by the most recent. Each post includes the author's email, the post content, and the date of creation.
 
 Post editing and deletion: Users can edit and delete their own posts, allowing them to update their content or remove posts they no longer wish to share.
-
+> Check It Out Here https://evening-scrubland-38912.herokuapp.com/
+![Log In Page](<Screenshot (78).png>)
+![Home Page](<Screenshot (79).png>) 
+![Profile Page](<Screenshot (80).png>)
 # Installation
 1. Clone the repository:
 
