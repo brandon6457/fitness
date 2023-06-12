@@ -36,6 +36,13 @@ console.log(token);
           </Link>
         </li>
         )}
+        {token && (
+        <li>
+          <Link to="/workouts" className="headerButton">
+            Workouts
+          </Link>
+        </li>
+        )}
         <li>
           <Link to="/main" className="headerButton">
             Main
