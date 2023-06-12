@@ -13,9 +13,10 @@ Post listing: The main page displays a list of posts from all users, sorted by t
 
 Post editing and deletion: Users can edit and delete their own posts, allowing them to update their content or remove posts they no longer wish to share.
 > Check It Out Here https://evening-scrubland-38912.herokuapp.com/
-![Log In Page](<Screenshot (78).png>)
-![Home Page](<Screenshot (79).png>) 
-![Profile Page](<Screenshot (80).png>)
+![Screenshot (78)](https://github.com/brandon6457/fitness/assets/124737955/bf5cacec-1b07-4c73-9223-87fddd2009b2)
+![Screenshot (79)](https://github.com/brandon6457/fitness/assets/124737955/f4a2804f-cb5c-4f87-8a94-7ce3473a1528)
+![Screenshot (80)](https://github.com/brandon6457/fitness/assets/124737955/b4692eed-9a57-455d-ae99-effb0de000ae)
+
 # Installation
 1. Clone the repository:
 
