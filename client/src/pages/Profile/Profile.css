@@ -48,8 +48,8 @@
     background-color: #45a049;
   }
   
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     .profile-container {
       margin: 20px -15px;
     }
-   } */
+   }

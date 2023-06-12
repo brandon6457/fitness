@@ -1,8 +1,3 @@
-.nameTitle {
- /* margin-bottom: 1rem; */
-  margin-left: 38rem;
-  justify-content: center;
-}
 .card-header {
   font-size: 1.2rem;
   font-weight: bold;
@@ -40,21 +35,7 @@
   background-color: #45a049;
 }
 @media (max-width: 2300px) {
-  .nameTitle{
-    margin-left: 2rem;
-  }
   .card {
-    word-wrap: break-word; 
-  }
-}
-
-@media (min-width: 472px) and (max-width: 2300px) {
-  .nameTitle{
-    margin-left: 30rem; /* username's post */
-    justify-content: center;
-  }
-  .card {
-    margin: auto;
     word-wrap: break-word; 
   }
 }
