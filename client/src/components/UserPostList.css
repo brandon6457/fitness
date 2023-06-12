@@ -1,6 +1,7 @@
 .nameTitle {
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+ /* margin-bottom: 1rem; */
+  margin-left: 38rem;
+  justify-content: center;
 }
 .card-header {
   font-size: 1.2rem;
@@ -38,7 +39,7 @@
 .delete-button:hover {
   background-color: #45a049;
 }
-@media (max-width: 600px) {
+@media (max-width: 2300px) {
   .nameTitle{
     margin-left: 2rem;
   }
@@ -47,17 +48,18 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
+@media (min-width: 472px) and (max-width: 2300px) {
   .nameTitle{
-    margin-left: 2rem;
+    margin-left: 30rem; /* username's post */
+    justify-content: center;
   }
   .card {
-    margin-left: 2rem;
+    margin: auto;
     word-wrap: break-word; 
   }
 }
 
-@media (min-width: 1201px) {
+@media (min-width: 472px) {
   .card {
     word-wrap: break-word; 
   }
