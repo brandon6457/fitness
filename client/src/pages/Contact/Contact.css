@@ -1,5 +1,8 @@
 .contact-container {
     color: #1c1c1c;
+      display: flex;
+  align-items: center;
+  justify-content: center;
     padding: 20px;
     height: 100vh;
     width: 100vw;
@@ -7,6 +10,7 @@
   
   .contact-heading {
     text-align: center;
+    color: #fff;
   }
   
   .contact-content {
@@ -20,6 +24,8 @@
   
   .contact-text {
     margin-bottom: 20px;
+    font-size: 20px;
+    color: #fff;
   }
   
   .contact-form {
@@ -33,6 +39,7 @@
   
   .form-input,
   .form-textarea {
+    margin-left: 3px;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -53,9 +60,25 @@
   .submit-button:hover {
     background-color: #45a049;
   }
-  
+
+  #bg-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    z-index: -1;
+    filter: blur(5px);
+}
+body {
+    background-color: transparent;
+}
+
+
   @media (max-width: 600px) {
     .contact-content {
       padding: 0 10px;
     }
   }
+
